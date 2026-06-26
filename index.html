@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Virtual Peace Offering 🤍</title>
+    <style>
+        /* CSS STYLING */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #fff0f3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #4a4a4a;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        /* Card Layouts */
+        .card, .letter-card, .meter-card, .treaty-card {
+            background: white;
+            padding: 30px 20px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(255, 182, 193, 0.4);
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .card.active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Images / GIFs */
+        .card-img {
+            width: 150px;
+            height: 150px;
+            object-fit: contain;
+            margin-bottom: 15px;
+            border-radius: 10px;
+        }
+
+        /* Typography */
+        .title-text {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #ff4d6d;
+        }
+
+        .sub-text {
+            font-size: 16px;
+            color: #7a7a7a;
+            margin-bottom: 25px;
+            line-height: 1.4;
+        }
+
+        .header-tag {
+            font-size: 12px;
+            letter-spacing: 2px;
+            color: #ff758f;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        /* Interactive Buttons */
+        .btn {
+            background-color: #ff4d6d;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 16px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.2s, transform 0.1s;
+            box-shadow: 0 5px 15px rgba(255, 77, 109, 0.3);
+            width: 100%;
+        }
+
+        .btn:hover {
+            background-color: #ff758f;
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        /* Forgiveness Meter components */
+        .progress-container {
+            width: 100%;
+            background-color: #ffe5ec;
+            border-radius: 20px;
+            margin: 20px 0;
+            overflow: hidden;
+            height: 25px;
+            border: 1px solid #ffb3c1;
+        }
+
+        .progress-bar {
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(90deg, #ff758f, #ff4d6d);
+            transition: width 0.2s ease;
+        }
+
+        .status-text {
+            font-size: 20px;
+            font-weight: bold;
+            color: #ff4d6d;
+            margin-bottom: 5px;
+        }
+
+        .instruction {
+            font-size: 12px;
+            color: #a3a3a3;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        .heart-btn {
+            font-size: 60px;
+            cursor: pointer;
+            user-select: none;
+            transition: transform 0.1s ease;
+            display: inline-block;
+        }
+
+        .heart-btn:active {
+            transform: scale(0.8);
+        }
+
+        /* Coupons Section */
+        .treaty-card h2 { color: #ff4d6d; }
+        .sub-heading { font-size: 12px; letter-spacing: 2px; color: #7a7a7a; margin-bottom: 15px;}
+        hr { border: 0; height: 1px; background: #ffe5ec; margin: 15px 0; width: 100%; }
+
+        .coupon {
+            background: #fff0f3;
+            border: 2px dashed #ffb3c1;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 15px;
+            width: 100%;
+            text-align: left;
+        }
+        .coupon h3 { font-size: 14px; color: #ff4d6d; margin-bottom: 5px; }
+        .coupon p { font-size: 13px; color: #666; margin-bottom: 8px; }
+        .coupon input { accent-color: #ff4d6d; margin-right: 5px; }
+        .final-text { font-size: 14px; line-height: 1.5; color: #5c5c5c; }
+    </style>
+</head>
+<body>
+
+    <audio id="bgMusic" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="container" id="step1">
+        
+        <div class="card active" id="card1">
+            <img class="card-img" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3Nnbm95N3p5d3VwY29hc2NidmN0eXFpZ3Y5bndkZndpZms1eW9wdyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/c76IJLufpNwI0/giphy.gif" alt="Sad Cat">
+            <p class="title-text">I Messed Up, Divya 😢</p>
+            <p class="sub-text">But I'm ready to make it right. Will you hear me out?</p>
+            <button class="btn" onclick="startExperience(1, 2)">Listen to my heart 💘</button>
+        </div>
+
+        <div class="card" id="card2">
+            <img class="card-img" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbWp0M2Nidm9wZnd0amRibmN0ZndpZms1eW9wdyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/sXv0vaA4331Ti/giphy.gif" alt="Cute Bear">
+            <p class="title-text">I Know I Hurt You</p>
+            <p class="sub-text">I messed up... and I'm really sorry for that.</p>
+            <button class="btn" onclick="nextCard(2, 3)">Next 🐾</button>
+        </div>
+
+        <div class="card" id="card3">
+            <img class="card-img" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbDVnbncyZndpdzBvY2FzY2J2Y3R5cWlndjlubndkZndpZms1eW9wdyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/ICOgUNjpvO0PC/giphy.gif" alt="Sorry Hug">
+            <p class="title-text">You Mean Everything</p>
+            <p class="sub-text">I promise I'll be better for you.</p>
+            <button class="btn" onclick="nextCard(3, 4)">Next ❤️</button>
+        </div>
+
+        <div class="card" id="card4">
+            <img class="card-img" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpnbmE5ZndpZms1eW9wdyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/13CoXDiaCcC9gc/giphy.gif" alt="Please">
+            <p class="title-text">I'm Truly Sorry</p>
+            <p class="sub-text">Please forgive me... you mean so much to me.</p>
+            <button class="btn" onclick="showApologyLetter()">Click To Open 💌</button>
+        </div>
+    </div>
+
+    <div class="container hidden" id="step2">
+        <div class="letter-card">
+            <p class="header-tag">A VIRTUAL PEACE OFFERING ❤️</p>
+            <h2>My Dearest Divya,</h2>
+            <div class="letter-body">
+                <p>I'm really sorry, my love. I accidentally upset the most precious and adorable person in my life — you. 🥺</p>
+                <p>Please forgive me if I hurt you or wasted even a little of your precious time. I promise I didn't mean to. 🥺💕</p>
+            </div>
+            <button class="btn" onclick="showMeter()">Continue 👉</button>
+        </div>
+    </div>
+
+    <div class="container hidden" id="step3">
+        <div class="meter-card">
+            <h2>FORGIVENESS METER ❤️</h2>
+            <div class="progress-container">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+            <p class="status-text" id="statusText">0% FORGIVEN</p>
+            <p class="instruction">TAP THE HEART TO HEAL MY HEART!</p>
+            <div class="heart-btn" onclick="chargeMeter()">❤️</div>
+        </div>
+    </div>
+
+    <div class="container hidden" id="step4">
+        <div class="treaty-card">
+            <h2>PEACE TREATY SIGNED! 🕊️</h2>
+            <p class="sub-heading">NEW BEGINNINGS AHEAD</p>
+            
+            <hr>
+            
+            <div class="coupon">
+                <h3>🌸 FRESH BLOOMS 🌸</h3>
+                <p>Valid for 1 bouquet delivery + unlimited forehead kisses 💕</p>
+                <label><input type="checkbox" checked disabled> Redeemable anytime</label>
+            </div>
+
+            <div class="coupon">
+                <h3>🧸 CUDDLE PASS 🧸</h3>
+                <p>Valid for unlimited hugs, cuddles & no drama day 🥳</p>
+                <label><input type="checkbox" checked disabled> Redeemable anytime</label>
+            </div>
+
+            <div class="coupon">
+                <h3>🍫 SWEET TREAT 🍫</h3>
+                <p>Valid for your favorite chocolate + my full attention 🥰</p>
+                <label><input type="checkbox" checked disabled> Redeemable anytime</label>
+            </div>
+
+            <hr>
+
+            <p class="final-text">Thank you for being the most forgiving and wonderful person. I love you to the moon and back and I'm never letting go! ❤️🙏</p>
+        </div>
+    </div>
+
+    <script>
+        let currentPercent = 0;
+        const music = document.getElementById('bgMusic');
+
+        function startExperience(current, next) {
+            // Most browsers block auto-music until user interactions occur. 
+            // Clicking this first button safely triggers audio setup.
+            music.play().catch(error => console.log("Audio play blocked initially."));
+            nextCard(current, next);
+        }
+
+        function nextCard(current, next) {
+            document.getElementById(`card${current}`).classList.remove('active');
+            document.getElementById(`card${next}`).classList.add('active');
+        }
+
+        function showApologyLetter() {
+            document.getElementById('step1').classList.add('hidden');
+            document.getElementById('step2').classList.remove('hidden');
+            document.getElementById('step2').children[0].style.display = 'flex';
+        }
+
+        function showMeter() {
+            document.getElementById('step2').classList.add('hidden');
+            document.getElementById('step3').classList.remove('hidden');
+            document.getElementById('step3').children[0].style.display = 'flex';
+        }
+
+        function chargeMeter() {
+            if (currentPercent < 100) {
+                currentPercent += 10; 
+                
+                if (currentPercent > 100) currentPercent = 100;
+
+                document.getElementById('progressBar').style.width = currentPercent + '%';
+                document.getElementById('statusText').innerText = currentPercent + '% FORGIVEN';
+
+                if (currentPercent === 100) {
+                    document.getElementById('statusText').innerText = "100% FORGIVEN! ✨";
+                    
+                    setTimeout(() => {
+                        document.getElementById('step3').classList.add('hidden');
+                        document.getElementById('step4').classList.remove('hidden');
+                        document.getElementById('step4').children[0].style.display = 'flex';
+                    }, 1000);
+                }
+            }
+        }
+    </script>
+</body>
+</html>

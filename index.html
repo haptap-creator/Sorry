@@ -176,13 +176,13 @@
 <body>
 
     <audio id="bgMusic" loop>
-        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+        <source src="https://audio.com/harsha-prajapati/audio/tum-se-hi-karaoke-track-jab-we-met-kareena-kapoor-shahid-kapoor-mohit-chauhan-pritam" type="audio/mpeg">
     </audio>
 
     <div class="container" id="step1">
         
         <div class="card active" id="card1">
-            <img class="card-img" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3Nnbm95N3p5d3VwY29hc2NidmN0eXFpZ3Y5bndkZndpZms1eW9wdyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/c76IJLufpNwI0/giphy.gif" alt="Sad Cat">
+            <img class="card-img" src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExdmoxanh0NGp5ZGh5NWFuM2Y3Z2lvbzY4eHFla3o2M3V3azV0MDliaiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/fxU6WfJ8eembhmZBC6/giphy.gif" alt="Sad Cat">
             <p class="title-text">I Messed Up, Shreya 😢</p>
             <p class="sub-text">But I'm ready to make it right. Will you hear me out?</p>
             <button class="btn" onclick="startExperience(1, 2)">Listen to my heart 💘</button>
@@ -196,14 +196,14 @@
         </div>
 
         <div class="card" id="card3">
-            <img class="card-img" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbDVnbncyZndpdzBvY2FzY2J2Y3R5cWlndjlubndkZndpZms1eW9wdyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/ICOgUNjpvO0PC/giphy.gif" alt="Sorry Hug">
+            <img class="card-img" src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExczY5eWtzczB1ODVoeWxzNm5kemZpbmFqejc3M3h6em5jM2hpMTE3aSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o7btRZjdVxcUqE30k/giphy.gif" alt="Sorry Hug">
             <p class="title-text">You Mean Everything</p>
             <p class="sub-text">I promise I'll be better for you.</p>
             <button class="btn" onclick="nextCard(3, 4)">Next ❤️</button>
         </div>
 
         <div class="card" id="card4">
-            <img class="card-img" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpnbmE5ZndpZms1eW9wdyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/13CoXDiaCcC9gc/giphy.gif" alt="Please">
+            <img class="card-img" src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExYXdtbHlzcmF2Nnl6OGo3ajZnY2Rhc3cyZWs1Z2JkZG5ydWlsbGdzNiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/7C24bVvPwnZ5Bmd9yS/giphy.gif" alt="Please">
             <p class="title-text">I'm Truly Sorry</p>
             <p class="sub-text">Please forgive me... you mean so much to me.</p>
             <button class="btn" onclick="showApologyLetter()">Click To Open 💌</button>
@@ -269,11 +269,12 @@
         let currentPercent = 0;
         const music = document.getElementById('bgMusic');
 
-        function startExperience(current, next) {
-            // Most browsers block auto-music until user interactions occur. 
-            // Clicking this first button safely triggers audio setup.
-            music.play().catch(error => console.log("Audio play blocked initially."));
-            nextCard(current, next);
+      function startExperience(current, next) {
+
+        music.currentTime = 17;
+        music.play().catch(error => console.log("Audio play blocked initially."));
+        nextCard(current, next);
+    }
         }
 
         function nextCard(current, next) {

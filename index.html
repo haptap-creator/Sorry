@@ -176,7 +176,7 @@
 <body>
 
     <audio id="bgMusic" loop>
-        <source src="https://audio.com/harsha-prajapati/audio/tum-se-hi-karaoke-track-jab-we-met-kareena-kapoor-shahid-kapoor-mohit-chauhan-pritam" type="audio/mpeg">
+        <source src="https://www.televisiontunes.com/uploads/audio/Up%20-%20Married%20Life.mp3" type="audio/mpeg">
     </audio>
 
     <div class="container" id="step1">
@@ -267,15 +267,18 @@
 
     <script>
         let currentPercent = 0;
-        const music = document.getElementById('bgMusic');
+        const music = document.getElementById("bgMusic");
 
-      function startExperience(current, next) {
+function startExperience(current, next) {
 
-        music.currentTime = 17;
-        music.play().catch(error => console.log("Audio play blocked initially."));
-        nextCard(current, next);
-    
-        }
+    music.currentTime = 0;
+
+    music.play()
+        .then(() => console.log("Playing"))
+        .catch(err => console.error(err));
+
+    nextCard(current, next);
+}
 
         function nextCard(current, next) {
             document.getElementById(`card${current}`).classList.remove('active');
